@@ -1,0 +1,88 @@
+div#ceo-message {
+    font-size: 15px;
+    font-style: normal;
+}
+
+div#ceo-message dt {
+    font-weight: 400;
+    line-height: 30px;
+}
+
+div#ceo-img img {
+    margin: auto;
+}
+
+section#history {
+    background-color: #f6f6f6;
+}
+
+section#directions {
+    background-color: #f6f6f6;
+}
+
+section#history table {
+    background: #FFFFFF;
+}
+
+section#history tr {
+    border-bottom: 1px solid darkgray;
+}
+
+@media screen and (max-width:600px)
+{
+    section#history th {
+        font-size: 15px;
+        color: #336799;
+        vertical-align: middle;
+        text-align: center;
+        border-right: 1px solid #dddddd;
+    }
+}
+
+section#history th {
+    font-size: 27px;
+    color: #336799;
+    padding: 10px;
+    vertical-align: middle;
+    text-align: center;
+    border-right: 1px solid #dddddd;
+}
+
+@media screen and (max-width:600px) {
+    section#history td {
+        font-size: 10px;
+        color: #666666;
+        vertical-align: middle;
+        line-height: 1.2em;
+    }
+}
+
+section#history td {
+    font-size: 16px;
+    color: #666666;
+    vertical-align: middle;
+    line-height: 1.7em;
+}
+
+@media screen and (max-width:600px) {
+    section#history td ul {
+        list-style-type: none;
+        margin: 0;
+        padding:0;
+    }
+}
+
+section#history td ul {
+    list-style-type: none;
+}
+
+section#history td ul li i {
+    color : #336799;
+    margin-right: 10px;
+}
+
+section#history td ul li span {
+    color : #336799;
+    font-weight: 500;
+    margin-right:20px;
+}

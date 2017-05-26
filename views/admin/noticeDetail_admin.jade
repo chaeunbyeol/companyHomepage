@@ -1,0 +1,33 @@
+extends admin_layout
+
+block content
+    .container
+        h2 ▶ Notice 상세보기
+        p(style='color:darkgray;font-size:18px;font-weight:500') 수정 버튼을 클릭하면, 제목과 내용을 수정할 수 있습니다.
+        br
+        br
+        .row(style='width: 80%; margin: auto;')
+            form(method='post')
+                table.table.table-bordered
+                    tr
+                        th(style='text-align: center;background-color: #F8F4EC;width:20%;') 글번호
+                        td(style='text-align: center; width:30%;')= notice.idx
+                        th(style='text-align: center;background-color: #F8F4EC;') 작성일
+                        td(style='text-align: center')= moment(notice.date).format("YYYY/MM/DD hh:mm:ss")
+                    tr
+                        th(style='text-align: center;background-color: #F8F4EC;') 작성자
+                        td(colspan='3')= notice.writer
+                    tr
+                        th(style='text-align: center;background-color: #F8F4EC;') 제목
+                        td(colspan='3')= notice.title
+                    tr
+                        th(style='text-align: center; height: 300px;background-color: #F8F4EC;') 글내용
+                        td(colspan='3')
+                            each line in notice.content.split(/\n/)
+                                = line
+                                br
+                br
+                .col-md-offset-9
+                    a.btn.btn-danger.btn-lg(href='/admin/notice/delete/'+ notice.idx) 삭제
+                    a.btn.btn-success.btn-lg(href='/admin/notice/edit/'+ notice.idx) 수정
+                    a.btn.btn-default.btn-lg(href='/admin/notice') 목록

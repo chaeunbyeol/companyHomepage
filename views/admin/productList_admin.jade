@@ -1,0 +1,64 @@
+extends admin_layout
+
+block content
+    .container
+        h2 ▶ Product & Service 목록
+        p(style='color:darkgray;font-size:18px;font-weight:500') 제품명을 클릭하면, 해당 제품의 상세 보기 페이지로 이동합니다.
+        br
+        br
+        table.table
+            thead
+                tr
+                    th(style='text-align: center;') 번호
+                    th(style='text-align: center;') 제품명
+                    th(style='text-align: center;') 분류
+            tbody
+                each product in products
+                    tbody(style='text-align: center;')
+                        td
+                            = product.idx
+                        td(align='left')
+                            a(href="/admin/product/detail/" + product.idx)
+                                = product.name
+                        td
+                            case product.category
+                                when 1
+                                    | Telematics
+                                when 2
+                                    | 지능형 이동 관제 서비스
+                                when 3
+                                    | Webscan
+                                default
+                                    | 차량 단말기
+        .col-md-offset-11
+            a.btn.btn-primary.btn-lg(href='/admin/product/add') 추가
+        br
+        br
+        br
+
+        h2 ▶ Product & Service 제품군 목록
+        p(style='color:darkgray;font-size:18px;font-weight:500') 제품군을 클릭하면, 해당 제품군 내용 수정 페이지로 이동합니다.
+        br
+        br
+        table.table
+            thead
+                tr
+                    th(style='text-align: center;') 번호
+                    th(style='text-align: center;') 제품군
+                    th(style='text-align: center;') 설명
+            tbody
+                each category in categories
+                    tbody(style='text-align: center;')
+                        td
+                            = category.idx
+                        td(align='left')
+                            a(href="/admin/category/edit/" + category.idx)
+                                = category.category
+                        td
+                            = category.summary
+
+        .col-md-offset-11
+            a.btn.btn-primary.btn-lg(href='/admin/category/add') 추가
+
+        br
+        br

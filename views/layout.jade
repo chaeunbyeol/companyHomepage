@@ -1,0 +1,17 @@
+html
+//if lt IE 7
+html.no-js.ie6(lang='ko')
+//if IE 7
+html.no-js.ie7(lang='ko')
+//if IE 8
+html.no-js.ie8(lang='ko')
+// [if gt IE 8] <!
+html.no-js(lang='ko')
+  head
+    title= _title
+    block head
+      include head
+  body
+    include header
+    block content
+    include footer

@@ -1,0 +1,25 @@
+.product-spec h4{
+    font-size:17px;
+}
+
+#spec-table {
+    background: #FFFFFF;
+}
+
+#spec-table tr {
+    border-bottom: 1px solid darkgray;
+}
+
+#spec-table th {
+    font-size: 40px;
+    color: #336799;
+    padding: 10px 30px 10px 30px;
+    text-align: center;
+    border-right: 1px solid rgba(51, 103, 153, 0.5);
+}
+
+section#history td {
+    font-size: 15px;
+    color: #666666;
+    vertical-align: middle;
+}

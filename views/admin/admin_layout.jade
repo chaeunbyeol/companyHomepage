@@ -1,0 +1,29 @@
+html
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        meta(name='description', content='')
+        meta(name='author', content='')
+        title= _title
+        // Bootstrap Core CSS
+        link(href='/stylesheets/bootstrap.min.css', rel='stylesheet')
+        link(href='/stylesheets/admin.css', rel='stylesheet')
+    body
+        nav.navbar.navbar-default
+            .container-fluid
+                .navbar-header
+                    a.navbar-brand(href='/admin/notice')
+                        img(src='/images/logo2.png', style='margin-top:-20px')
+                ul.nav.navbar-nav
+                    li.list-group-item
+                        a(href='/admin/notice', style='font-size:20px') Notice
+                    li.list-group-item
+                        a(href='/admin/product', style='font-size:20px') Product & Service
+                    li.list-group-item
+                        a(href='/admin/news', style='font-size:20px') News
+                    li.list-group-item
+                        a(href='/admin/support', style='font-size:20px') Support
+                form(action="/admin/logout" method="get")
+                    input#logoutBtn.btn.btn-warning.btn-lg(type='submit', value='LOGOUT  (관리자 페이지 접근 권한 해제) ', style='color:#FFFFFF;')
+        block content

@@ -1,0 +1,30 @@
+extends admin_layout
+
+block content
+    .container
+        h2 ▶ 문의 사항 목록
+        p(style='color:darkgray;font-size:18px;font-weight:500') Support 페이지에서 고객이 작성한 문의사항들 목록입니다.
+        br
+        br
+        table.table
+            thead
+                tr
+                    th(style='text-align: center;') 번호
+                    th(style='text-align: center;') 작성자
+                    th(style='text-align: center;') 연락처
+                    th(style='text-align: center;') 문의내용
+                    th(style='text-align: center;') 작성일
+            tbody
+                each inquiry in inquiries
+                    tbody(style='text-align: center;')
+                        td
+                            = inquiry.idx
+                        td
+                            = inquiry.writer
+                        td
+                            = inquiry.writer_phone
+                        td(align='left')
+                            a(href="/admin/support/detail/" + inquiry.idx)
+                                = inquiry.content.substr(0, 20) + '...'
+                        td
+                            = moment(inquiry.date).format("YYYY/MM/DD hh:mm:ss")

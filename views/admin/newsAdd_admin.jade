@@ -1,0 +1,30 @@
+extends admin_layout
+
+block content
+    .container
+        h2 ▶ News 작성
+        br
+        br
+        .row(style='width: 80%; margin: auto;')
+            form(method='post', action='/admin/news/add')
+                table.table.table-bordered
+                    tr
+                        th(style='text-align: center;background-color: #F8F4EC; width:20%;') 작성자
+                        td(colspan='3') 관리자
+                            input.form-control(type='hidden', name='writer', value='관리자')
+                    tr
+                        th(style='text-align: center;background-color: #F8F4EC;') 제목
+                        td(colspan='3')
+                            input.form-control(type='text', name='title')
+                    tr
+                        th(style='text-align: center;background-color: #F8F4EC;') 글내용
+                        td(colspan='3')
+                            textarea.form-control(rows='12', name='content', style='resize: none;')
+                    tr
+                        th(style='text-align: center;background-color: #F8F4EC;') 이미지
+                        td(colspan='3')
+                            input.form-control(type='file', name='image')
+                br
+                .col-md-offset-9
+                    input#editBtn.btn.btn-success.btn-lg(type='submit', value='완료')
+                    a.btn.btn-default.btn-lg(href='/admin/news/') 취소

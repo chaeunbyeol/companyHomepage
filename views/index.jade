@@ -1,0 +1,45 @@
+extends layout
+
+block append head
+  link(rel='stylesheet', href='/stylesheets/index.css')
+
+block content
+  .wrapper
+    section#about
+      .container
+        .section-heading.scrollpoint.sp-effect3
+          h1 Product & Service
+          .divider
+        .row
+          .col-md-3.indMargin
+            .about-item.scrollpoint.sp-effect2
+              a(href='/product#telematics')
+                i.fa.fa-telegram.fa-2x
+              h3
+                = categories[0].category
+              p
+                = categories[0].summary
+          .col-md-3.indMargin
+            .about-item.scrollpoint.sp-effect5
+              a(href='/product#control')
+                i.fa.fa-podcast.fa-2x(aria-hidden='true')
+              h3
+                = categories[1].category
+              p
+                = categories[1].summary
+          .col-md-3.indMargin
+            .about-item.scrollpoint.sp-effect5
+              a(href='/product#webscan')
+                i.fa.fa-qrcode.fa-2x
+              h3
+                = categories[2].category
+              p
+                = categories[2].summary
+          .col-md-3.indMargin
+            .about-item.scrollpoint.sp-effect1
+              a(href='/product#terminal')
+                i.fa.fa-car.fa-2x(aria-hidden='true')
+              h3
+                = categories[3].category
+              p
+                = categories[3].summary

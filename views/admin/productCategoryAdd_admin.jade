@@ -1,0 +1,25 @@
+extends admin_layout
+
+block content
+    .container
+        h2 ▶ Product & Service 제품군 추가하기
+        p(style='color:darkgray;font-size:18px;font-weight:500') 제품군을 추가할 수 있습니다.
+        p(style='color:darkgray;font-size:18px;font-weight:500') 추가한 후에는 Front-end 쪽 수정이 필요합니다.
+        br
+        br
+        .row(style='width: 80%; margin: auto;')
+            form(method='post', action='/admin/category/add')
+                table.table.table-bordered
+                    tr
+                        th(style='text-align: center;') 제품군
+                        td(colspan='3')
+                            input.form-control(type='text', name='category')
+                    tr
+                        th(style='text-align: center;') 설명
+                        td(colspan='3')
+                            input.form-control(type='text', name='summary')
+
+                br
+                .col-md-offset-9
+                    input.btn.btn-success.btn-lg(type='submit', value='완료')
+                    a.btn.btn-default.btn-lg(href='/admin/product') 취소

@@ -1,0 +1,42 @@
+extends admin_layout
+
+block content
+    .container
+        h2 ▶ Product & Service 수정
+
+        br
+        br
+        .row(style='width: 80%; margin: auto;')
+            form(method='post', action='/admin/product/edit/' + product.idx)
+                table.table.table-bordered
+                    tr
+                        th(style='text-align: center;background-color: #F8F4EC; width:20%;') 번호(index)
+                        td(style='text-align: center; width:30%;')= product.idx
+                        th(style='text-align: center;background-color: #F8F4EC;') 분류
+                        td(colspan='3', style='text-align:center;')
+                            case product.category
+                                when 1
+                                    | Telematics
+                                when 2
+                                    | 지능형 이동 관제 서비스
+                                when 3
+                                    | Webscan
+                                default
+                                    | 차량 단말기
+                    tr
+                        th(style='text-align: center;background-color: #F8F4EC;') 제품명
+                        td(colspan='3')= product.name
+                    tr
+                        th(style='text-align: center; background-color: #F8F4EC;') 설명
+                        td(colspan='3')
+                            textarea.form-control(rows='15', name='summary', style='resize: none;')
+                                =  product.summary
+                    tr
+                        th(style='text-align: center; background-color: #F8F4EC;') Spec
+                        td(colspan='3')
+                            textarea.form-control(rows='15', name='spec', style='resize: none;')
+                                = product.spec
+                br
+                .col-md-offset-10
+                    input.btn.btn-success.btn-lg(type='submit', value='완료')
+                    a.btn.btn-default.btn-lg(href='/admin/product') 취소

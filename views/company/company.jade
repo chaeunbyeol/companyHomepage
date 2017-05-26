@@ -1,0 +1,185 @@
+extends ../layout
+
+block append head
+  link(rel='stylesheet', href='/stylesheets/company.css')
+  script(src='/javascripts/scripts.js')
+  script(type="text/javascript", src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=he76sZC5bDDrvmUcnynu")
+
+block content
+  .wrapper
+    #subFix.sub-nav
+      table.table-responsive
+        tr
+          td#first
+            a#first1.on(href='#ceo-area') 인사말
+          td
+            a#second(href='#history') 연혁
+          td
+            a#third(href='#vision') Vision
+          td
+            a#fourth(href='#directions') 오시는길
+    section#ceo-area.company
+      .container
+        .section-heading.scrollpoint.sp-effect3
+          .topPadding
+            h2 인사말
+          .divider
+        .row
+          #ceo-message.col-md-7
+            dl
+              dt 안녕하십니까? 진대제입니다.
+            dl
+              dt
+                | "IoT(사물통신, Internet of Things) 시대가 다가옵니다."
+                | 사람과 사람, 사람과 사물간의 통신을 넘어 사물과 사물이 유ㆍ무선 네트워크를 통해 대화를 나누는 시대가 열리고 있습니다. 집 안의 모든 가전제품과 조명 등 각종
+                | 제어장치는 물론, 스마트폰을 비롯해 안경, 시계 등 신체에 착용하는 사물, 자동차, 가로등, 건물 등 거리에 존재하는 모든 사물들이 인터넷으로 연결돼 서로 정보를
+                | 주고 받는 시대가 머지 않았습니다. 네트워크로 연결된 사물들은 새로운 가치를 창출하며 인간의 삶을 더욱 풍요롭게 할 것입니다.
+            dl
+              dt
+                | "IoT시대를 이끄는 Global ICT Solution Leader가 되겠습니다."
+                | 회사명인 CT2P는 사물을 사람에 연결시켜 주는 의미인 'Connecting Things to People"의 약자이며 이를 위한 Mobile Device, 플랫폼
+                | 및 애플리케이션을 아우르는 Total Solution 전문 기업으로 성장할 것입니다. IoT 시장을 선점하기 위하여 시스코, 에릭슨, 오라클, 인텔, IBM, 구글
+                | 등 글로벌 기업들은 앞다퉈 사물지능통신과 관련된 개술개발, 제품출시 및 사업협력을 강화하는 등 IT업계의 총성 없는 전쟁이 시작되었습니다. CT2P Solutions
+                | 는 IoT 산업의 개방성과 확장성을 기반으로 기존 산업과 융합된 Smart Car, Smart Home, Smart Building, Smart Farm, Smart
+                | Grid 등 다양한 Solution 을 개발하여 글로벌 기술 경쟁력을 강화하여 Global ICT Solution Leader가 되겠습니다.
+            dl
+              dt
+                | 창조적인 기술로 생활을 좀 더 편리하고 풍요롭게 바꿔나가는 CT2P 에 많은 관심과 성원을 부탁 드립니다.
+          #ceo-img.col-md-5
+            img.img-responsive.img-rounded(src='/images/ceo.png')
+            br
+            img.img-responsive(src='/images/ceo_sign.png')
+    section#history.company
+      .container
+        .section-heading.scrollpoint.sp-effect3
+          h2 연혁
+          .divider
+        table.table.table-responsive
+          tr
+            // 새로 추가할 땐 여기부터
+            th.col-md-2.col-sm-2 2016
+            // 연도
+            td.col-md-10.col-sm-10
+              ul
+                // 해당 연도의 월에 해당하는 리스트
+                li
+                  i.fa.fa-arrow-circle-right(aria-hidden='true')
+                  span 2016.  9
+                  | 최기무 대표이사 취임
+                li
+                  i.fa.fa-arrow-circle-right(aria-hidden='true')
+                  span 2016.  5
+                  | 차세대 LTE 모뎀 개발. Connected OBD 개발
+                li
+                  i.fa.fa-arrow-circle-right(aria-hidden='true')
+                  span 2016.  1
+                  | SKT 축산 단말 개발
+          // 여기까지를 추가
+          tr
+            th.col-md-2.col-sm-2 2015
+            td.col-md-10.col-sm-10
+              ul
+                li
+                  i.fa.fa-arrow-circle-right(aria-hidden='true')
+                  span 2015.10
+                  | “㈜하나씨티피”로 사명 변경. 하나테크 인수 합병.
+                  |                                 진대제 회장 대표이사 취임
+                li
+                  i.fa.fa-arrow-circle-right(aria-hidden='true')
+                  span 2015.  4
+                  | 4G(LTE) 모듈 개발 및 출시(KT, 한국)
+          tr
+            th.col-md-2.col-sm-2 2014
+            td.col-md-10.col-sm-10
+              ul
+                li
+                  i.fa.fa-arrow-circle-right(aria-hidden='true')
+                  span 2014.  7
+                  | 4G(LTE) 중계기 모듈 개발/출시 (KDDI, 일본) Telematics 모듈 개발/출시(LGT, 한국)
+                li
+                  i.fa.fa-arrow-circle-right(aria-hidden='true')
+                  span 2014.  5
+                  | 4G(LTE) 모듈 & CPE 라우터
+                  |                                 개발/출시(SKT, 한국) LBS 단말기 출시(SKT, 한국)
+          tr
+            th.col-md-2.col-sm-2 2013
+            td.col-md-10.col-sm-10
+              ul
+                li
+                  i.fa.fa-arrow-circle-right(aria-hidden='true')
+                  span 2013.11
+                  | ‘㈜씨티투피 솔루션스’ 사업 출범
+                li
+                  i.fa.fa-arrow-circle-right(aria-hidden='true')
+                  span 2013.10
+                  | ‘㈜씨티투피 솔루션스’ 설립
+                  ul.inner-ul
+                    li
+                      i.fa.fa-caret-right(aria-hidden='true')
+                      | ‘영업양수도’에 따라 C-motech의 모든 영업권이 CT2P로 이관.
+                    li
+                      i.fa.fa-caret-right(aria-hidden='true')
+                      | C-motech은 회생절차에 따라 청산
+    section#vision.company
+      .container
+        .section-heading.scrollpoint.sp-effect3
+          h2 VISION
+          .divider
+          table.table
+            thead
+              tr
+                th 준비중
+                th 준비중
+                th 준비중
+            tbody
+              tr
+                td 준비중
+                td 준비중
+                td 준비중
+              tr.success
+                td 준비중
+                td 준비중
+                td 준비중
+    section#directions.company
+      .container
+        .section-heading.scrollpoint.sp-effect3
+          h2 오시는 길
+          .divider
+          #map(style='width:100%;height:70%;')
+          #marker
+        script.
+            var skyauto = new naver.maps.LatLng(37.483272, 127.041999),
+                map = new naver.maps.Map('map', {
+                    center: skyauto,
+                    zoomControl: true,
+                    minZoom: 1
+                }),
+                marker = new naver.maps.Marker({
+                    map: map,
+                    position: skyauto
+                });
+            var contentString = [
+                '<div class="iw_inner">',
+                '   <h3><img src="/images/logo2.png" alt="스카이오토넷" class="thumb" /><br/></h3>',
+                '  <p style="font-size:15px; font-weight:500; padding:10px;">서울시 서초구 양재동 3-13번지 3층<br/>',
+                '       <a href="http://map.naver.com/?edid=98050056&elng=4bba14f0ca8fe733ee0ae1d15d0aa059&elat=a7967b8614f3d3cd4377a9dd0ad1d118&eText=%EC%8A%A4%EC%B9%B4%EC%9D%B4%EC%98%A4%ED%86%A0%EB%84%B7&eType=SITE_1" target="_blank" style="font-weight: 500">▶ 네이버 지도 길찾기</a>',
+                '  </p>',
+                '</div>'
+            ].join('');
+            var infowindow = new naver.maps.InfoWindow({
+                content: contentString
+            });
+
+            naver.maps.Event.addListener(marker, "click", function (e) {
+                if (infowindow.getMap()) {
+                    infowindow.close();
+                } else {
+                    infowindow.open(map, marker);
+                }
+            });
+
+            infowindow.open(map, marker);
+
+    a#top-btn(href='#top')
+      span
+        i.fa.fa-arrow-circle-up.fa-4x(aria-hidden='true')

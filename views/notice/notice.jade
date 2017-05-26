@@ -1,0 +1,75 @@
+extends ../layout
+
+block append head
+  link(rel='stylesheet', type="text/css", href='/stylesheets/notice.css')
+  script(src='/javascripts/noticeScript.js')
+
+block content
+  .wrapper
+    #subFix.sub-nav
+      table.table-responsive
+        tr
+          td#first
+            a#first1.on(href='#infonotice') 공지사항
+          td
+            a#third(href='#news') NEWS
+    section#infonotice.notice
+      .container
+        .section-heading.scrollpoint.sp-effect3.nomar
+          .topPadding
+            h2 공지사항
+          .divider
+          table#noticeTable
+            tr
+              td(height='2', bgcolor='#336799', colspan='26')
+            tr#boldTd(height='35', align='center', bgcolor='#ffffff')
+              td(width='15%', height='35') 번호
+              td.noticeTd
+              td(width='50%')  제목
+              td.noticeTd
+              td(width='15%') 작성자
+              td.noticeTd
+              td(width='20%') 작성일
+              td.noticeTd
+            tr
+              td(height='1', bgcolor='#aaaaaa', colspan='26')
+            each notice in notices
+              tr(height='35', align='center')
+                td
+                  = notice.idx
+                td  
+                td(align='left')
+                  a(href="/notice/detail/" + notice.idx)
+                    = notice.title
+                td  
+                td
+                  = notice.writer
+                td  
+                td
+                  = moment(notice.date).format("YYYY/MM/DD")
+                td  
+                td  
+              tr
+                td#tdtdx
+              tr
+                td(height='1', bgcolor='#F0F0F0', colspan='26')
+            tr
+              td(height='1', bgcolor='#dcdcdc', colspan='26')
+    section#news.notice
+      .container
+        .section-heading.scrollpoint.sp-effect3
+          h2 News
+          .divider
+        div
+          each item in news
+            figure.snip1249
+              .image
+                img(src='/images/news2.jpg', alt='sample90')
+              figcaption
+                h4
+                  = item.title
+                a.add-to-cart(href='/notice/news/detail/' + item.idx) 자세히 보기
+
+    a#top-btn(href='#top')
+      span
+        i.fa.fa-arrow-circle-up.fa-4x(aria-hidden='true')

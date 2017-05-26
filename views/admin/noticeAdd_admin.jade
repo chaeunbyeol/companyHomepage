@@ -1,0 +1,26 @@
+extends admin_layout
+
+block content
+    .container
+        h2 ▶ Notice 작성
+        br
+        br
+        .row(style='width: 80%; margin: auto;')
+            form(method='post', action='/admin/notice/add')
+                table.table.table-bordered
+                    tr
+                        th(style='text-align: center;background-color: #F8F4EC;') 작성자
+                        td(colspan='3') 관리자
+                            input.form-control(type='hidden', name='writer', value='관리자')
+                    tr
+                        th(style='text-align: center;background-color: #F8F4EC;') 제목
+                        td(colspan='3')
+                            input.form-control(type='text', name='title')
+                    tr
+                        th(style='text-align: center;background-color: #F8F4EC;') 글내용
+                        td(colspan='3')
+                            textarea.form-control(rows='12', name='content', style='resize: none;')
+                br
+                .col-md-offset-9
+                    input.btn.btn-success.btn-lg(type='submit', value='완료')
+                    a.btn.btn-default.btn-lg(href='/admin/notice/') 취소

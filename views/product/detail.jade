@@ -1,0 +1,45 @@
+extends ../layout
+
+block append head
+  link(rel='stylesheet', href='/stylesheets/product.css')
+block content
+  .wrapper
+    style.
+    section#info.product-spec
+      .container
+        .section-heading.scrollpoint.sp-effect3
+          h2
+            = product.name
+          .divider
+        .scrollpoint.sp-effect1
+          .row
+            .col-md-6
+              case product.image
+                when null
+                  img.img-responsive(src='/images/products/CWX-670K.png')
+                default
+                  img.img-responsive(src='/images/products/#{product.image}')
+            .col-md-6
+              h4(style='text-align:center;')
+                each line in product.summary.split(/\n/)
+                  = line
+                  br
+    section#spec.product-spec(style='background: #f6f6f6;')
+      .container
+        .product-spec
+          .section-heading.scrollpoint.sp-effect3
+            h2 제품 상세
+            .divider
+          div(style='margin: auto; width:80%')
+            .scrollpoint.sp-effect1
+              table.table
+                tbody
+                  tr
+                    th(style='font-size:20px;') Spec.
+                    td
+                      each line in product.spec.split(/\n/)
+                        = line
+                        br
+    a#top-btn(href='#top')
+      span
+        i.fa.fa-arrow-circle-up.fa-4x(aria-hidden='true')

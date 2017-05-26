@@ -1,0 +1,12 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+body {
+    font-family: 'nanumgothic';
+    color: #666666;
+    -webkit-font-smoothing: antialiased;
+}
+
+#logoutBtn{
+    float:right;
+    margin-top: 7px;
+}

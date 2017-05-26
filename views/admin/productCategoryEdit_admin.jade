@@ -1,0 +1,25 @@
+extends admin_layout
+
+block content
+    .container
+        h2 ▶ Product & Service 제품군 수정하기
+        p(style='color:darkgray;font-size:18px;font-weight:500') 메인 페이지에서 보이는 4가지 제품군에 대한 수정을 할 수 있습니다.
+        br
+        br
+        .row(style='width: 80%; margin: auto;')
+            form(method='post', action='/admin/category/edit/' + category.idx)
+                table.table.table-bordered
+                    tr
+                        th(style='text-align: center;') 제품군
+                        td(colspan='3')
+                            input.form-control(type='text', name='category', value=category.category)
+                    tr
+                        th(style='text-align: center;') 간략한 설명
+                        td(colspan='3')
+                            input.form-control(type='text', name='summary', value=category.summary)
+
+                br
+                .col-md-offset-9
+                    input.btn.btn-success.btn-lg(type='submit', value='완료')
+                    a.btn.btn-default.btn-lg(href='/admin/product') 취소
+                    a.btn.btn-danger.btn-lg(href='/admin/category/delete/' + category.idx) 삭제

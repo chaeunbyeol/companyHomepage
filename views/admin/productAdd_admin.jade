@@ -1,0 +1,37 @@
+extends admin_layout
+
+block content
+    .container
+        h2 ▶ Product & Service 추가
+        p(style='color:darkgray;font-size:18px;font-weight:500') 정확한 값을 입력받기 위해서, 제품군은 숫자로 대체합니다.
+        p(style='color:#009688;font-size:18px;font-weight:500') Telematics = 1 / 지능형 이동 관제 서비스 = 2 / Webscan = 3 / 차량단말기 = 4
+        p(style='color:darkgray;font-size:15px;font-weight:500') (★ 제품군이 추가되었을 경우, DB 에 product_category 테이블에서 index 확인)
+        br
+        br
+        .row(style='width: 80%; margin: auto;')
+            form(method='post', action='/admin/product/add' enctype="multipart/form-data")
+                table.table.table-bordered
+                    tr
+                        th(style='text-align: center;background-color: #F8F4EC; width:20%;') 제품명
+                        td(colspan='3')
+                            input.form-control(type='text', name='name')
+                    tr
+                        th(style='text-align: center;background-color: #F8F4EC;') 제품군
+                        td
+                            input.form-control(type='text', name='category')
+                    tr
+                        th(style='text-align: center; height: 200px;background-color: #F8F4EC;') 설명
+                        td(colspan='3')
+                            textarea.form-control(rows='12', name='summary', style='resize: none;')
+                    tr
+                        th(style='text-align: center; height: 200px;background-color: #F8F4EC;') Spec
+                        td(colspan='3')
+                            textarea.form-control(rows='12', name='spec', style='resize: none;')
+
+                br
+                .col-md-offset-10
+                    input#editBtn.btn.btn-success.btn-lg(type='submit', value='완료')
+                    a.btn.btn-default.btn-lg(href='/admin/product/') 취소
+
+                br
+                br

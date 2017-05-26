@@ -1,0 +1,53 @@
+extends admin_layout
+
+block content
+    .container
+        h2 ▶ Product & Service 상세보기
+        br
+        br
+        .row(style='width: 80%; margin: auto;')
+            form
+                table.table.table-bordered
+                    tr
+                        th(style='text-align: center;background-color: #F8F4EC; width:20%;') 번호(index)
+                        td(style='text-align:center; width:30%;')= product.idx
+                        th(style='text-align: center;background-color: #F8F4EC;') 카테고리
+                        td(colspan='3', style='text-align:center;')
+                            case product.category
+                                when 1
+                                    | Telematics
+                                when 2
+                                    | 지능형 이동 관제 서비스
+                                when 3
+                                    | Webscan
+                                default
+                                    | 차량 단말기
+                    tr
+                        th(style='text-align: center;background-color: #F8F4EC;') 제품명
+                        td(colspan='3')= product.name
+                    tr
+                        th(style='text-align: center;background-color: #F8F4EC;') 이미지
+                        td(colspan='3')
+                            case product.image
+                                when null
+                                    img.img-responsive(src='/images/products/CWX-670K.png')
+                                default
+                                    img.img-responsive(src='/images/products/#{product.image}')
+                    tr
+                        th(style='text-align: center; background-color: #F8F4EC;') 설명
+                        td(colspan='3')
+                            each line in product.summary.split(/\n/)
+                                = line
+                                br
+                    tr
+                        th(style='text-align: center; background-color: #F8F4EC;') Spec
+                        td(colspan='3')
+                            each line in product.spec.split(/\n/)
+                                = line
+                                br
+
+                br
+                .col-md-offset-9
+                    a.btn.btn-danger.btn-lg(href='/admin/product/delete/'+ product.idx) 삭제
+                    a.btn.btn-success.btn-lg(href='/admin/product/edit/'+ product.idx) 수정
+                    a.btn.btn-default.btn-lg(href='/admin/product') 목록

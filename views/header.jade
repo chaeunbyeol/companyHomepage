@@ -1,0 +1,91 @@
+header#top
+  nav.navbar.navbar-default.navbar-fixed-top.dropdown.navFix(role='navigation')
+    a#log-btn(data-toggle='modal', data-target='#layerpop1')
+      i.fa.fa-sign-in.fa-2x(aria-hidden='true')
+    .container
+      // Brand and toggle get grouped for better mobile display
+      .navbar-header
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+          span#fabutton.fa.fa-bars.fa-lg
+        a.navbar-brand(href='/')
+          img#logo.logo(src='/images/logo.png', alt='')
+      // Collect the nav links, forms, and other content for toggling
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        ul.nav.navbar-nav.dropdown-toggle(data-toggle='dropdown')
+          li.dropdown.mega-dropdown
+            #padrow.row
+              a.dropdown-toggle.aPadding1(href='/company', data-toggle='dropdown') Company
+              a.dropdown-toggle.aPadding2(href='/product', data-toggle='dropdown') Product&Service
+              a.dropdown-toggle.aPadding3(href='/support', data-toggle='dropdown') Support
+              a.dropdown-toggle.aPadding4(href='/notice', data-toggle='dropdown') Notice
+            ul.dropdown-menu.mega-dropdown-menu
+              li.col-md-3
+                ul#megaUl1
+                  li
+                    a(href='/company#ceo-area') 인사말
+                  li
+                    a(href='/company#history') 연혁
+                  li
+                    a(href='/company#vision') Vision
+                  li
+                    a(href='/company#directions') 오시는 길
+                li.col-md-3
+                  ul#megaUl2
+                    li
+                      a(href='/product#telematics') Telematics
+                    li
+                      a(href='/product#control') 지능형이동관제서비스
+                    li
+                      a(href='/product#webscan') Webscan
+                    li
+                      a(href='/product#terminal') 차량단말기
+                li.col-md-3
+                  ul#megaUl3
+                    li
+                      a(href='/support#download') 다운로드
+                    li
+                      a(href='/support#faq') FAQ
+                    li
+                      a(href='/support#inquiry') 고객문의
+                li.col-md-3
+                  ul#megaUl4
+                    li
+                      a(href='/notice#infonotice') 공지사항
+                    li
+                      a(href='/notice#news') News
+        // -----------------모바일-----------------------------
+        #mobile-menu
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/company') 회사소개
+            li
+              a(href='/product') Product&Service
+            li
+              a(href='/support') 제품지원
+            li
+              a(href='/notice#notice') 공지사항
+        // -모바일-
+    // /.container
+  // RevSlider
+  #layerpop1.modal.fade
+    .modal-dialog.modal-sm
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal') ×
+          h5.modal-title Login
+        .modal-body
+          div(align='center', style='margin-bottom: 10%')
+            img.img-responsive(src='/images/logo2.png')
+          .wrapper
+            form(action='/admin/login', method='post')
+              .input-group
+                span.input-group-addon
+                  i.fa.fa-user
+                input.form-control.f-input(type='text', name='username', placeholder='ID')
+              .input-group(style='margin-bottom: 5%')
+                span.input-group-addon
+                  i.fa.fa-lock
+                input.form-control.f-input(type='password', name='password', placeholder='Password')
+              center
+                input#loginBtn.btn(type='submit', value='LOGIN', style='background:#336799; color:#FFFFFF;')
+              br

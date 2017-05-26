@@ -1,0 +1,29 @@
+extends admin_layout
+
+block content
+    .container
+        h2 ▶ Notice 목록
+        p(style='color:darkgray;font-size:18px;font-weight:500') 제목을 클릭하면, 해당 글의 상세 보기 페이지로 이동합니다.
+        br
+        br
+        table.table
+            thead
+                tr
+                    th(style='text-align: center;') 번호
+                    th(style='text-align: center;') 제목
+                    th(style='text-align: center;') 작성자
+                    th(style='text-align: center;') 작성일
+            tbody
+                each notice in notices
+                    tbody(style='text-align: center;')
+                        td
+                            = notice.idx
+                        td(align='left')
+                            a(href="/admin/notice/detail/" + notice.idx)
+                                = notice.title
+                        td
+                            = notice.writer
+                        td
+                            = moment(notice.date).format("YYYY/MM/DD hh:mm:ss")
+        .col-md-offset-11
+            a.btn.btn-primary.btn-lg(href='/admin/notice/add') 추가

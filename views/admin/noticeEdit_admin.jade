@@ -1,0 +1,31 @@
+extends admin_layout
+
+block content
+    .container
+        h2 ▶ Notice 수정
+        br
+        br
+        .row(style='width: 80%; margin: auto;')
+            form(method='post', action='/admin/notice/edit/' + notice.idx)
+                table.table.table-bordered
+                    tr
+                        th(style='text-align: center;background-color: #F8F4EC;') 글번호
+                        td(style='text-align: center; width:20%;')= notice.idx
+                        th(style='text-align: center;background-color: #F8F4EC;') 작성일
+                        td= moment(notice.date).format("YYYY/MM/DD")
+                    tr
+                        th(style='text-align: center;background-color: #F8F4EC;') 작성자
+                        td(colspan='3')= notice.writer
+                    tr
+                        th(style='text-align: center;background-color: #F8F4EC;') 제목
+                        td(colspan='3')
+                            input.form-control(type='text', name='title', value=notice.title)
+                    tr
+                        th(style='text-align: center;background-color: #F8F4EC;') 글내용
+                        td(colspan='3')
+                            textarea.form-control(rows='12', name='content', style='resize: none;')
+                                = notice.content
+                br
+                .col-md-offset-9
+                    input#editBtn.btn.btn-success.btn-lg(type='submit', value='완료')
+                    a.btn.btn-default.btn-lg(href='/admin/notice/') 취소

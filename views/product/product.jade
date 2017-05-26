@@ -1,0 +1,153 @@
+extends ../layout
+
+block append head
+  link(rel='stylesheet', href='/stylesheets/product.css')
+  script(src='/javascripts/scripts.js')
+block content
+  .wrapper
+    #subFix.sub-nav
+      table.table-responsive
+        tr
+          td#first
+            a#first1.on(href='#telematics') Telematics
+          td
+            a#second(href='#control') 지능형 이동 관제 서비스
+          td
+            a#third(href='#webscan') Webscan
+          td
+            a#fourth(href='#terminal') 차량 단말기
+    section#telematics.product
+      div(style=' padding: 3%;  width: 80%; margin: auto;')
+        .section-heading.scrollpoint.sp-effect3
+          h2 Telematics
+          .divider
+        .row
+          each item in telematics
+            .col-md-3
+              .flip-container(ontouchstart="this.classList.toggle('hover');")
+                .flipper
+                  .abc
+                    case item.image
+                      when null
+                        img.img-responsive(src='/images/products/thumbnail/CWX-670K.png')
+                      default
+                        img.img-responsive(src='/images/products/thumbnail/#{item.image}')
+                    p.product-group Telematics
+                    p.product-name
+                      = item.name
+                  .back
+                    br
+                    p.product-group-detail Telematics
+                    p.product-name-detail
+                      = item.name
+                    br
+                    #more(style="height:130px")
+                      p(style="font-size:20px")
+                        = item.summary.substr(0, 70) + '...'
+                      br
+                    div(style='width: 95%')
+                      a(href='/product/detail/' + item.idx)
+                        button.btn.btn-default.morebtn More
+
+
+    section#control.product
+      div(style=' padding: 3%;  width: 80%; margin: auto;')
+        .section-heading.scrollpoint.sp-effect3
+          h2 지능형 이동 관제 서비스
+          .divider
+        .row
+          each item in controls
+            .col-md-3
+              .flip-container(ontouchstart="this.classList.toggle('hover');")
+                .flipper
+                  .abc
+                    case item.image
+                      when null
+                        img.img-responsive(src='/images/products/thumbnail/CWX-670K.png')
+                      default
+                        img.img-responsive(src='/images/products/thumbnail/#{item.image}')
+                    p.product-group 지능형 이동 관제 서비스
+                    p.product-name
+                      = item.name
+                  .back
+                    br
+                    p.product-group-detail 지능형 이동 관제 서비스
+                    p.product-name-detail
+                      = item.name
+                    br
+                    #more(style="height:130px")
+                      p(style="font-size:20px")
+                        = item.summary.substr(0, 70) + '...'
+                      br
+                    div(style='width: 95%')
+                      a(href='/product/detail/' + item.idx)
+                        button.btn.btn-default.morebtn More
+    section#webscan.product
+      div(style=' padding: 3%;  width: 80%; margin: auto;')
+        .section-heading.scrollpoint.sp-effect3
+          h2 Webscan
+          .divider
+        .row
+          each item in webscans
+            .col-md-3
+              .flip-container(ontouchstart="this.classList.toggle('hover');")
+                .flipper
+                  .abc
+                    case item.image
+                      when null
+                        img.img-responsive(src='/images/products/thumbnail/CWX-670K.png')
+                      default
+                        img.img-responsive(src='/images/products/thumbnail/#{item.image}')
+                    p.product-group Webscan
+                    p.product-name
+                      = item.name
+                  .back
+                    br
+                    p.product-group-detail Webscan
+                    p.product-name-detail
+                      = item.name
+                    br
+                    #more(style="height:130px")
+                      p(style="font-size:20px")
+                        = item.summary.substr(0, 70) + '...'
+                      br
+                    div(style='width: 95%')
+                      a(href='/product/detail/' + item.idx)
+                        button.btn.btn-default.morebtn More
+
+    section#terminal.product
+      div(style=' padding: 3%;  width: 80%; margin: auto;')
+        .section-heading.scrollpoint.sp-effect3
+          h2 차량단말기
+          .divider
+        .row
+          each item in terminals
+            .col-md-3
+              .flip-container(ontouchstart="this.classList.toggle('hover');")
+                .flipper
+                  .abc
+                    case item.image
+                      when null
+                        img.img-responsive(src='/images/products/thumbnail/CWX-670K.png')
+                      default
+                        img.img-responsive(src='/images/products/thumbnail/#{item.image}')
+                    p.product-group 차량단말기
+                    p.product-name
+                      = item.name
+                  .back
+                    br
+                    p.product-group-detail 차량단말기
+                    p.product-name-detail
+                      = item.name
+                    br
+                    #more(style="height:130px")
+                      p(style="font-size:20px")
+                        = item.summary.substr(0, 70) + '...'
+                      br
+                    div(style='width: 95%')
+                      a(href='/product/detail/' + item.idx)
+                        button.btn.btn-default.morebtn More
+    a#top-btn(href='#top')
+      span
+        i.fa.fa-arrow-circle-up.fa-4x(aria-hidden='true')
+  

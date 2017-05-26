@@ -1,0 +1,58 @@
+extends ../layout
+
+block append head
+  link(rel='stylesheet', type="text/css", href='/stylesheets/notice.css')
+
+block content
+  .wrapper
+    section#infonotice.notice
+      .container
+        .section-heading.scrollpoint.sp-effect3.nomar
+          .topPadding
+          h2 공지사항
+          .divider
+          br
+          br
+          br
+        section#search
+          .container
+            table(width='100%', border='0', cellspacing='0', cellpadding='0', align='center')
+              tr
+                td(height='2', bgcolor='#336799', colspan='26')
+              tr(height='35')
+                td(height='35', colspan='6', align='left', style='padding:5px 20px 5px 20px; font-size:14px; color:#333; word-break:break-all;')
+                  strong
+                  = notice.title
+              tr
+                td(height='1', bgcolor='#dcdcdc', colspan='6')
+              tr(height='40')
+                td(height='40', colspan='6')
+                  ul.bbs_top.clfix
+                    li.bg_none
+                      em.tit 글쓴이
+                      span(style='padding-left:10px;word-break:break-all;list-style: none')
+                        = notice.writer
+                    li
+                      em.tit 작성일
+                      span(style='padding-left:10px;word-break:break-all;')
+                        = moment(notice.date).format("YYYY/MM/DD hh:mm:ss")
+              tr
+                td(height='1', bgcolor='#aaaaaa', colspan='6')
+              tr
+                td(height='15', colspan='6')
+              tr
+                td(colspan='6')
+              tr
+                td(colspan='6')
+                  table(width='100%', border='0', cellpadding='0', cellspacing='0', style='border-bottom:1px solid #ddd;')
+                    tr
+                      td(style='word-break:break-all;padding:15px;')
+                        #DivContents(style='line-height:1.4;word-break:break-all;')
+                          each line in notice.content.split(/\n/)
+                            = line
+                            br
+              tr
+                td(height='5', colspan='6')
+              tr
+                td(height='40', colspan='6', align='right')
+                  a.btn.btn-primary.btn-lg(href='/notice') 목록

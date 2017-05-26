@@ -1,0 +1,31 @@
+extends admin_layout
+th(style='text-align: center;') 문의내용
+th(style='text-align: center;') 작성일
+block content
+    .container
+        h2 ▶ 문의 사항 상세보기
+        br
+        br
+        .row(style='width: 80%; margin: auto;')
+            form(method='post')
+                table.table.table-bordered
+                    tr
+                        th(style='text-align: center;background-color: #F8F4EC;width:20%;') 번호
+                        td(style='text-align: center; width:30%;')= inquiry.idx
+                        th(style='text-align: center;background-color: #F8F4EC;') 작성일
+                        td= moment(inquiry.date).format("YYYY/MM/DD")
+                    tr
+                        th(style='text-align: center;background-color: #F8F4EC;') 작성자
+                        td(style='text-align: center; width:30%;')= inquiry.writer
+                        th(style='text-align: center;background-color: #F8F4EC;') 연락처
+                        td= inquiry.writer_phone
+                    tr
+                        th(style='text-align: center; height: 300px;background-color: #F8F4EC;') 글내용
+                        td(colspan='3')
+                            each line in inquiry.content.split(/\n/)
+                                = line
+                                br
+                br
+                .col-md-offset-10
+                    a.btn.btn-danger.btn-lg(href='/admin/support/delete/'+ inquiry.idx) 삭제
+                    a.btn.btn-default.btn-lg(href='/admin/support') 목록

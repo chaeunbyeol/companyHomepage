@@ -1,0 +1,66 @@
+extends ../layout
+
+block append head
+  link(rel='stylesheet', type="text/css", href='/stylesheets/notice.css')
+
+block content
+  .wrapper
+    section#newsContents
+      .container
+        table(width='100%', border='0', cellspacing='0', cellpadding='0', align='center')
+          tr
+            td(height='2', bgcolor='#336799', colspan='26')
+          tr(height='35')
+            td(height='35', colspan='6', align='left', style='padding:5px 20px 5px 20px; font-size:14px; color:#333; word-break:break-all;')
+              strong
+              = news.title
+          tr
+            td(height='1', bgcolor='#dcdcdc', colspan='6')
+          tr(height='40')
+            td(height='40', colspan='6')
+              ul.bbs_top.clfix
+                li.bg_none
+                  em.tit 작성자
+                  span(style='padding-left:10px;word-break:break-all;list-style: none')
+                    = news.writer
+                li
+                  em.tit 작성일
+                  span(style='padding-left:10px;word-break:break-all;')
+                    = moment(news.date).format("YYYY/MM/DD hh:mm:ss")
+          tr
+            td(height='1', bgcolor='#aaaaaa', colspan='6')
+          tr
+            td(height='15', colspan='6')
+          tr
+            td(colspan='6')
+          tr
+            td(colspan='6')
+              table(width='100%', border='0', cellpadding='0', cellspacing='0', style='border-bottom:1px solid #ddd;')
+                tr
+                  td(style='word-break:break-all;padding:15px;')
+                    #DivContents(style='line-height:1.4;word-break:break-all;')
+                      span#writeContents
+                        table(width='500', align='CENTER', bgcolor='#ffffff', border='0', cellspacing='5', cellpadding='0')
+                          tbody
+                            tr
+                              td(bgcolor='#e6e6e6')
+                                table(bgcolor='#ffffff', border='0', cellspacing='5', cellpadding='0')
+                                  tbody
+                                    tr
+                                      td
+                                        span.end_photo_org
+                                          img(name='target_resize_image[]', onclick='image_window(this)', style='cursor:pointer;', src='/images/news2.jpg')
+                                    tr
+                                      td 진대제 대표
+                        p
+                          br
+                          br
+                          font(size='3')
+                        p(style='line-height: 200%;')
+                          span(style='color: black; line-height: 200%; font-family: "맑은 고딕"; font-size: 10pt; mso-ascii-theme-font: minor-fareast; mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-fareast;')
+                            = news.content
+          tr
+            td(height='5', colspan='6')
+          tr
+            td(height='40', colspan='6', align='right')
+              a(href='/notice#news').btn.btn-primary.btn-lg 목록
